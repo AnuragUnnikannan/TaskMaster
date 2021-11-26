@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="icon" href="static/taskboardflat_106022.png" type="image/x-icon">
+    <title>TaskMaster | Home</title>
+</head>
+<body>
+    <nav id="navbar">
+        <img src="static/taskboardflat_106022.png" alt="taskmaster_logo" id="logo">
+        <p id="caption">TaskMaster</p>
+        <div id="bar">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contacts</a></li>
+            <li><a href="#">About</a></li>
+        </div>
+    </nav>
+    <form action="/" method="POST" id="task_form">
+        <label for="person_name">Select name:</label>
+        <br>
+        <select name="person_name" id="person_name">
+            <option value="" disabled selected></option>
+            <option value="Amit">Amit</option>
+            <option value="Sunil">Sunil</option>
+            <option value="Ramesh">Ramesh</option>
+            <option value="Mahesh">Mahesh</option>
+            <option value="Ashok">Ashok</option>
+            <option value="Varun">Varun</option>
+            <option value="Vijay">Vijay</option>
+        </select>
+        <br>
+        
+        <label for="task_name">Select task:</label>
+        <br>
+        <select name="task_name" id="task_name">
+            <option value="" disabled selected></option>
+            <option value="Accounts">Accounts</option>
+            <option value="HR">HR</option>
+            <option value="Production">Production</option>
+            <option value="Programming">Programming</option>
+            <option value="IT">IT</option>
+            <option value="Testing">Testing</option>
+        </select>
+
+        <button type="submit" id="next"></button>
+        
+    </form>
+    <div class="wrapper">
+        <div id="confirmation">
+            <p>Do you want to confirm these options?</p>
+            <div id="buttons">
+                <button id="yes" onclick="proceed()">Yes</button>
+                <button id="no" onclick="cancel()">No</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <footer>
+        <p>TaskMaster &copy; Anurag Unnikannan 2021</p>
+    </footer>
+
+    <script>
+        var personSelected = false, taskSelected = false;
+        var selectElement1 = document.querySelector('#person_name');
+        selectElement1.addEventListener('change', (event) => {
+            personSelected = true;
+            check();
+        });
+
+        var selectElement2 = document.querySelector('#task_name');
+        selectElement2.addEventListener('change', (event) => {
+            taskSelected = true;
+            check();
+        });
+
+        function cancel()
+        {
+            document.getElementsByClassName("wrapper")[0].style.display = "none";
+        }
+
+        function proceed()
+        {
+            document.getElementById("next").click();
+        }
+        
+        function check()
+        {
+            if(personSelected == true && taskSelected == true)
+            {
+                document.getElementsByClassName("wrapper")[0].style.display = "flex";
+
+            }
+        }
+    </script>
+</body>
+
+</html>

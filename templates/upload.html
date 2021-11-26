@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="icon" href="static/taskboardflat_106022.png" type="image/x-icon">
+    <title>TaskMaster | Upload Files</title>
+</head>
+<body>
+    <nav id="navbar">
+        <img src="static/taskboardflat_106022.png" alt="taskmaster_logo" id="logo">
+        <p id="caption">TaskMaster</p>
+        <div id="bar">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contacts</a></li>
+            <li><a href="#">About</a></li>
+        </div>
+    </nav>
+
+    <div id="output">
+        <img src="static/customer_person_people_man_you_1625.png" alt="person" class="person1">
+        <p id="person">{{ person_name }}</p>
+        <br>
+        <img src="static/korganizer_task_tasks_list_9500.png" alt="task" class="person1">
+        <p id="task">{{ task_name }}</p>
+    </div>
+
+    <form action="" method="POST" id="file_upload">
+        <label id="file_label">Upload Files
+            <input type="file" id="file1" name="file1" onchange="countFiles()" multiple>
+            <img src="static/cloudup_icon-icons.com_54402.png" alt="upload" id="upload">
+        </label>
+        <button type="submit" id="final"></button>
+    </form>
+
+    <p id="count_files"></p>
+
+    <button id="next1" onclick="check()">Done</button>
+    <div class="wrapper">
+        <div id="upload_confirmation">
+            <p id="message">Text</p>
+            <button id="ok">OK</button>
+        </div>
+    </div>
+    <footer>
+        <p>TaskMaster &copy; Anurag Unnikannan 2021</p>
+    </footer>
+
+    <script>
+        function countFiles()
+        {
+            var files = document.getElementById("file1").files;
+            document.getElementById("count_files").innerHTML = files.length + " uploaded";    
+        }
+        
+        function submit(status)
+        {
+            if(status == 1)
+            {
+                document.getElementById("final").click();
+            }
+            else
+            {
+                document.getElementsByClassName("wrapper")[0].style.display = "none";
+            }
+        }
+
+        function check()
+        {
+            var files = document.getElementById("file1").files;
+            var status = 0;
+            if(files.length >= 2)
+            {
+                /* alert("Task completed successfully"); */
+                document.getElementsByClassName("wrapper")[0].style.display = "flex";
+                document.getElementById("message").innerHTML = "Task completed successfully!";
+                status = 1;
+                submit(status);
+            }
+            else
+            {
+                document.getElementsByClassName("wrapper")[0].style.display = "flex";
+                document.getElementById("message").innerHTML = "Task incomplete! Please upload required files.";
+                submit(status);
+                /* alert("Upload all files to complete the task!"); */
+            }
+        }
+    </script>
+</body>
+</html>
