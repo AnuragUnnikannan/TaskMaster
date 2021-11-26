@@ -42,21 +42,22 @@
     <div class="wrapper">
         <div id="upload_confirmation">
             <p id="message">Text</p>
-            <button id="ok">OK</button>
+            <button id="ok" onclick="submit()">OK</button>
         </div>
     </div>
     <footer>
-        <p>TaskMaster &copy; Anurag Unnikannan 2021</p>
+        <p>TaskMaster < / > by Anurag Unnikannan 2021</p>
     </footer>
 
     <script>
+		var status = 0;
         function countFiles()
         {
             var files = document.getElementById("file1").files;
-            document.getElementById("count_files").innerHTML = files.length + " uploaded";    
+            document.getElementById("count_files").innerHTML = files.length + " file(s) uploaded";    
         }
         
-        function submit(status)
+        function submit()
         {
             if(status == 1)
             {
@@ -71,21 +72,17 @@
         function check()
         {
             var files = document.getElementById("file1").files;
-            var status = 0;
-            if(files.length >= 2)
+            status = 0;
+            if(files.length >= 1)
             {
-                /* alert("Task completed successfully"); */
                 document.getElementsByClassName("wrapper")[0].style.display = "flex";
                 document.getElementById("message").innerHTML = "Task completed successfully!";
                 status = 1;
-                submit(status);
             }
             else
             {
                 document.getElementsByClassName("wrapper")[0].style.display = "flex";
                 document.getElementById("message").innerHTML = "Task incomplete! Please upload required files.";
-                submit(status);
-                /* alert("Upload all files to complete the task!"); */
             }
         }
     </script>
