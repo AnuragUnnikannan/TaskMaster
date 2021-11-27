@@ -100,6 +100,8 @@ select {
     padding: 2%;
 }
 
+/* to blur the content, when confirmation box is active*/
+
 .wrapper {
     width: 100%;
 	z-index: 5;
@@ -115,7 +117,7 @@ select {
 
 #confirmation {
     width: 300px;
-    padding: 20px;
+    padding: 25px;
     background-color: white;
     border-radius: 18px;
     background: #e0e0e0;
@@ -128,21 +130,34 @@ select {
 }
 
 #yes {
-    padding: 1%;
-    width: 30%;
+    padding: 2% 8%;
+    font-size: 18px;
     font-weight: bold;
     color: white;
-    background-color: green;
+    background-color: rgb(33, 114, 219);
+    border: none;
+    box-shadow: 2.5px 2.5px #777777;
     border-radius: 10px;
+    margin-right: 15%;
+}
+
+#yes:hover {
+    background-color: rgb(71, 170, 51);
 }
 
 #no {
-    padding: 1%;
-    width: 30%;
+    padding: 2% 8%;
+    font-size: 18px;
     font-weight: bold;
     color: white;
-    background-color: orangered;
+    background-color: rgb(33, 114, 219);
+    box-shadow: 2.5px 2.5px #777777;
+    border: none;
     border-radius: 10px;
+}
+
+#no:hover {
+    background-color: tomato;
 }
 
 #buttons {
@@ -166,7 +181,7 @@ select {
 	position: absolute;
 	top: 5%;
     width: 30%;
-    margin: 5%;
+    margin-top: 5%;
 	font-size: 20px;
 }
 
@@ -177,15 +192,23 @@ select {
 }
 
 #file_label {
-    background-color: rgb(255, 230, 0);
+    background-color: rgb(209, 219, 226);
     display: block;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
     cursor: pointer;
     border-radius: 10px;
-    font-size: 25px;
-    padding: 3%;
+    font-size: 18px;
+    width: 200px;
+    padding: 5% 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20%;
+    border: 3px solid #F7FAFC;
+}
+
+#file_label:hover {
+    border: 3px dashed rgb(33, 114, 219);
+    background-color: #F7FAFC;
 }
 
 #file1 {
@@ -193,19 +216,26 @@ select {
 }
 
 #upload {
-    height: 25px;
+    display: block;
+    height: 50px;
     width: auto;
+    margin: 10% auto;
 }
 
 #next1 {
-    border-radius: 15px;
+    border-radius: 10px;
     font-size: 25px;
-    background-color: green;
+    font-weight: bold;
+    box-shadow: 2.5px 2.5px #777777;
+    background-color: rgb(2, 167, 243);
     color: white;
-	width: 12%;
     border: none;
-	padding: 2px;
+	padding: 1% 2%;
 	cursor: pointer;	
+}
+
+#next1:hover {
+    background-color: rgb(71, 170, 51);
 }
 
 #upload_confirmation {
@@ -222,22 +252,32 @@ select {
     text-align: center;
 }
 
-#ok {
+#ok_button {
     text-align: center;
-    padding: 1%;
-    width: 30%;
+}
+
+#ok {
+    padding: 2% 8%;
+    font-size: 18px;
     font-weight: bold;
     color: white;
-    background-color: green;
+    background-color: rgb(2, 167, 243);
+    box-shadow: 2.5px 2.5px #777777;
+    border: none;
     border-radius: 10px;
-	position: relative;
-	left: 35%;
 	cursor: pointer;
 }
 
+#ok:hover {
+    background-color: rgb(71, 170, 51);
+}
+
 footer {
-    background: rgba(0, 0, 0, 1);
-    color: orange;
+    background: rgb(209, 219, 226);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(60, 60, 60);
 	height: 100px;
     width: 100%;
 	padding-bottom: 30px;
@@ -245,6 +285,10 @@ footer {
 	position: absolute;
 	bottom: 0;
 	overflow: hidden;
+}
+
+#code {
+    color: tomato
 }
 
 @media (max-width: 980px){
@@ -271,7 +315,8 @@ footer {
 	}
 	
 	#output {
-		font-size: 25px;
+        margin-top: 10%;
+		font-size: 20px;
 		width: 50%;
 	}
 	
@@ -280,27 +325,41 @@ footer {
 	}
 	
 	#file_label {
-		font-size: 25px;
+		font-size: 20px;
 	}
 	
 	#next1 {
-		width: 20%;
+        font-size: 20px;
+        width: 20%;
+        padding: 3% 0;
 	}
+
+    footer p{
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 460px) {
 	
 	#logo {
-		height: 30px;
+		height: 35px;
+        position: relative;
+        left: 30%;
 	}
+
+    #caption {
+        font-size: 15px;
+        position: relative;
+        left: 30%;
+    }
+
+    #caption {
+        text-align: center;
+    }
 	
-	#navbar li {
-		font-size: 15px;
-	}
-	
-	#caption {
-		display: none;
-	}
+	#home, #about, #news, #contacts {
+        display: none;
+    }
 	
 	#task_form {
 		width: 80%;
@@ -315,19 +374,23 @@ footer {
 	}
 	
 	#output {
-		font-size: 20px;
-		width: 70%;
+        margin-top: 20%;
+		font-size: 16px;
+		width: 85%;
 	}
 	
 	#person1 {
 		height: 10px;
 	}
-	
-	#file_label {
-		/* font-size: 15px; */
-	}
+
+    #file_label{
+        font-size: 18px;
+        margin-bottom: 40%;
+    }
 	
 	#next1 {
-		width: 30%;
+        font-size: 18px;
+        width: 30%;
+        padding: 5% 0;
 	}
 }
