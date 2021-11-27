@@ -13,10 +13,10 @@
         <img src="static/taskboardflat_106022.png" alt="taskmaster_logo" id="logo">
         <p id="caption">TaskMaster</p>
         <div id="bar">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Contacts</a></li>
-            <li><a href="#">About</a></li>
+            <li><a id="home" href="#">Home</a></li>
+            <li><a id="news" href="#">News</a></li>
+            <li><a id="contacts" href="#">Contacts</a></li>
+            <li><a id="about" href="#">About</a></li>
         </div>
     </nav>
 
@@ -29,24 +29,25 @@
     </div>
 
     <form action="" method="POST" id="file_upload">
-        <label id="file_label">Upload Files
+        <label id="file_label">
             <input type="file" id="file1" name="file1" onchange="countFiles()" multiple>
             <img src="static/cloudup_icon-icons.com_54402.png" alt="upload" id="upload">
+            <p id="count_files">Upload Files</p>
         </label>
         <button type="submit" id="final"></button>
     </form>
-
-    <p id="count_files"></p>
 
     <button id="next1" onclick="check()">Done</button>
     <div class="wrapper">
         <div id="upload_confirmation">
             <p id="message">Text</p>
-            <button id="ok" onclick="submit()">OK</button>
+            <div id="ok_button">
+                <button id="ok" onclick="submit()">OK</button>
+            </div>
         </div>
     </div>
     <footer>
-        <p>TaskMaster < / > by Anurag Unnikannan 2021</p>
+        <p>TaskMaster <span id="code">< / ></span> by Anurag Unnikannan 2021</p>
     </footer>
 
     <script>
